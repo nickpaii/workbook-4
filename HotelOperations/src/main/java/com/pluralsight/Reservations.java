@@ -6,15 +6,27 @@ public class Reservations {
     private int numberOfNights;
     private boolean isWeekend;
     private float price;
-    private float reservationTotal;
 
-    public Reservations(String roomType, float price, boolean isWeekend, int numberOfNights) {
+
+    public Reservations(String roomType, boolean isWeekend, int numberOfNights) {
         this.roomType = roomType;
         this.isWeekend = isWeekend;
         this.numberOfNights = numberOfNights;
+        getRoomType();
+        getReservationTotal();
+        isWeekend();
     }
 
     public String getRoomType() {
+        roomType = roomType.toLowerCase();
+
+        if (roomType.equals("king")) {
+            price = 139;
+        }
+        if (roomType.equals("double")) {
+            price = 124;
+        }
+
         return roomType;
     }
 
@@ -23,6 +35,9 @@ public class Reservations {
     }
 
     public boolean isWeekend() {
+        if (isWeekend) {
+            price = price + (price * .10f);
+        }
         return isWeekend;
     }
 
@@ -38,11 +53,7 @@ public class Reservations {
         this.numberOfNights = numberOfNights;
     }
 
-    public float getPrice() {
-        return price;
-    }
-
     public float getReservationTotal() {
-        return reservationTotal;
+        return price * numberOfNights;
     }
 }
