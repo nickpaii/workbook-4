@@ -7,6 +7,7 @@ public class Employee {
     private String department;
     private float payRate;
     private float hoursWorked;
+    private double startTime;
 
     public Employee(int employeeID, float hoursWorked, float payRate, String department, String name) {
         this.employeeID = employeeID;
@@ -32,5 +33,37 @@ public class Employee {
         }
         
         return overtimeHours;
+    }
+
+    public int getEmployeeID() {
+        return employeeID;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDepartment() {
+        return department;
+    }
+
+    public float getPayRate() {
+        return payRate;
+    }
+
+    public double punchIn(double time) {
+        startTime = time;
+        return startTime;
+    }
+
+    public double punchOut(double time) {
+
+        double totalHoursWorked = 0;
+
+        double timeWorked = time - startTime;
+
+        totalHoursWorked += timeWorked;
+
+        return totalHoursWorked;
     }
 }

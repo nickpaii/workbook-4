@@ -1,5 +1,7 @@
 package com.pluralsight;
 
+import java.util.InputMismatchException;
+
 public class Reservations {
 
     private String roomType;
@@ -17,28 +19,30 @@ public class Reservations {
         isWeekend();
     }
 
-    public String getRoomType() {
+    public void getRoomType() {
         roomType = roomType.toLowerCase();
 
         if (roomType.equals("king")) {
             price = 139;
         }
-        if (roomType.equals("double")) {
+        else if (roomType.equals("double")) {
             price = 124;
         }
+        else {
+            throw new InputMismatchException("Please enter the correct room type.");
+        }
 
-        return roomType;
+
     }
 
     public void setRoomType(String roomType) {
         this.roomType = roomType;
     }
 
-    public boolean isWeekend() {
+    public void isWeekend() {
         if (isWeekend) {
             price = price + (price * .10f);
         }
-        return isWeekend;
     }
 
     public void setWeekend(boolean weekend) {

@@ -25,4 +25,17 @@ public class Room {
     public float getPrice() {
         return price;
     }
+
+    public void checkIn() {
+        this.isOccupied = true;
+        this.isDirty = true;
+    }
+
+    public void checkOut() {
+        cleanRoom();
+    }
+
+    public void cleanRoom() {
+        isDirty = false;
+    }
 }
