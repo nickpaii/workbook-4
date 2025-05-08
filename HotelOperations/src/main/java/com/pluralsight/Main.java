@@ -15,8 +15,11 @@ public class Main {
                 employee.getEmployeeID(), employee.getRegularHours(), employee.getPayRate(),
                 employee.getDepartment(), employee.getName());
 
-        System.out.println(employee.punchIn(10));
-        System.out.println(employee.punchOut(14.75));
+        System.out.println("Punch In Time: " + employee.punchIn(10));
+        System.out.println("Hours since last punch: " + employee.punchOut(14.75));
+        System.out.println("Final punch: " + employee.punchOut(15));
+        System.out.println(employee.punchIn());
+        System.out.println(employee.punchOut());
         System.out.printf("Reservation total: $%.2f%n", reservation.getReservationTotal());
         System.out.println(room.isAvailable());
     }
